@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Pittsburgh Property Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        nav {
+            background: #1a252f;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .service-category {
+            margin-bottom: 4rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .service-card ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+            color: #666;
+        }
+
+        .service-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-section {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .pricing-section h2 {
+            color: white;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 3rem 0;
+            background: #f8f9fa;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .step-number {
+            background: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box p {
+            color: #856404;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Pittsburgh Property Management</h1>
+            <p class="tagline">Helping Property Owners Build Independent Wealth</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="index.html#about">Why Choose Us</a></li>
+            <li><a href="index.html#portfolio">Our Portfolio</a></li>
+            <li><a href="index.html#contact">Get Started</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="container">
+            <h2>Comprehensive Property Management Services</h2>
+            <p>Everything you need to maximize your real estate investment returns and build lasting wealth</p>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="service-category">
+                <h2>Core Management Services</h2>
+                <p style="color: #666; margin-bottom: 2rem;">We handle every aspect of your property so you can focus on building your portfolio and wealth.</p>
+                
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-icon">👥</div>
+                        <h4>Tenant Acquisition & Placement</h4>
+                        <p>Finding and placing quality tenants is the foundation of successful property management.</p>
+                        <ul>
+                            <li>Professional property marketing</li>
+                            <li>Comprehensive tenant screening</li>
+                            <li>Background and credit checks</li>
+                            <li>Employment verification</li>
+                            <li>Reference checking</li>
+                            <li>Lease preparation and signing</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">💰</div>
+                        <h4>Rent Collection & Financial Management</h4>
+                        <p>Consistent cash flow is essential for your investment success.</p>
+                        <ul>
+                            <li>Online rent collection via RentRedi</li>
+                            <li>Automated payment processing</li>
+                            <li>Late fee enforcement</li>
+                            <li>Monthly financial statements</li>
+                            <li>Year-end tax documentation</li>
+                            <li>Detailed income/expense tracking</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🔧</div>
+                        <h4>Maintenance & Repairs</h4>
+                        <p>Protecting your property value through proactive maintenance.</p>
+                        <ul>
+                            <li>24/7 emergency response</li>
+                            <li>Regular property inspections</li>
+                            <li>Preventive maintenance programs</li>
+                            <li>Vendor coordination</li>
+                            <li>Cost-effective repairs</li>
+                            <li>Quality control oversight</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">📋</div>
+                        <h4>Lease Administration</h4>
+                        <p>Professional lease management that protects your interests.</p>
+                        <ul>
+                            <li>Legally compliant lease agreements</li>
+                            <li>Lease renewals and updates</li>
+                            <li>Rent increase management</li>
+                            <li>Move-in/move-out inspections</li>
+                            <li>Security deposit handling</li>
+                            <li>Violation enforcement</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🏢</div>
+                        <h4>Property Inspections</h4>
+                        <p>Regular oversight to maintain property condition and value.</p>
+                        <ul>
+                            <li>Quarterly property inspections</li>
+                            <li>Move-in condition documentation</li>
+                            <li>Move-out damage assessment</li>
+                            <li>Detailed photo documentation</li>
+                            <li>Maintenance issue identification</li>
+                            <li>Compliance verification</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">⚖️</div>
+                        <h4>Legal Compliance & Evictions</h4>
+                        <p>Professional handling of difficult situations when they arise.</p>
+                        <ul>
+                            <li>Local/state law compliance</li>
+                            <li>Fair housing adherence</li>
+                            <li>Proper notice procedures</li>
+                            <li>Eviction coordination</li>
+                            <li>Court representation coordination</li>
+                            <li>Legal documentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: white;">
+        <div class="container">
+            <div class="service-category">
+                <h2>Value-Added Services</h2>
+                <p style="color: #666; margin-bottom: 2rem;">Additional services that help maximize your investment returns.</p>
+                
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h4>Portfolio Growth Strategy</h4>
+                        <p>We help you expand your real estate holdings strategically.</p>
+                        <ul>
+                            <li>Market analysis and insights</li>
+                            <li>Investment opportunity identification</li>
+                            <li>Rental rate optimization</li>
+                            <li>Portfolio performance analysis</li>
+                            <li>Expansion planning</li>
+                            <li>ROI maximization strategies</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">♻️</div>
+                        <h4>Cost Reduction Programs</h4>
+                        <p>Sustainable practices that reduce expenses and increase profits.</p>
+                        <ul>
+                            <li>Material reuse and recycling</li>
+                            <li>Energy efficiency improvements</li>
+                            <li>Bulk purchasing programs</li>
+                            <li>Vendor relationship management</li>
+                            <li>Preventive maintenance savings</li>
+                            <li>Utility cost optimization</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h4>Performance Reporting</h4>
+                        <p>Clear insights into how your investment is performing.</p>
+                        <ul>
+                            <li>Monthly financial reports</li>
+                            <li>Occupancy rate tracking</li>
+                            <li>Expense analysis</li>
+                            <li>Cash flow statements</li>
+                            <li>Year-over-year comparisons</li>
+                            <li>Investment performance metrics</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🔑</div>
+                        <h4>Turnover Management</h4>
+                        <p>Minimizing vacancy and maximizing rental income.</p>
+                        <ul>
+                            <li>Quick unit turnovers</li>
+                            <li>Professional cleaning coordination</li>
+                            <li>Minor repair management</li>
+                            <li>Rapid re-leasing</li>
+                            <li>Market-rate analysis</li>
+                            <li>Vacancy minimization</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🤝</div>
+                        <h4>Owner Communication</h4>
+                        <p>Keeping you informed every step of the way.</p>
+                        <ul>
+                            <li>Regular status updates</li>
+                            <li>Transparent communication</li>
+                            <li>24/7 owner portal access</li>
+                            <li>Prompt response to inquiries</li>
+                            <li>Strategic consultation</li>
+                            <li>Annual performance reviews</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🛡️</div>
+                        <h4>Risk Management</h4>
+                        <p>Protecting your investment from potential issues.</p>
+                        <ul>
+                            <li>Insurance verification</li>
+                            <li>Safety compliance</li>
+                            <li>Risk assessment</li>
+                            <li>Documentation maintenance</li>
+                            <li>Liability protection</li>
+                            <li>Emergency preparedness</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Our Management Process</h2>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Initial Consultation</h4>
+                    <p>We discuss your property, goals, and expectations. We'll assess your property and provide recommendations for maximizing rental income.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Property Onboarding</h4>
+                    <p>We document current condition, set up financial accounts, and prepare marketing materials to attract quality tenants.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Tenant Placement</h4>
+                    <p>Professional marketing, thorough screening, and lease execution to get your property occupied by reliable tenants.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Ongoing Management</h4>
+                    <p>Daily operations, rent collection, maintenance coordination, and regular communication to ensure optimal performance.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Financial Reporting</h4>
+                    <p>Monthly statements, annual tax documents, and performance analysis to track your investment returns.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h4>Portfolio Growth</h4>
+                    <p>Strategic guidance on expanding your holdings and maximizing long-term wealth building through real estate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="pricing-section">
+        <div class="container">
+            <h2>Transparent, Competitive Pricing</h2>
+            <p style="font-size: 1.2rem; margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Our management fees are designed to align with your success. We only profit when you profit. 
+                Contact us for a customized quote based on your specific properties and needs.
+            </p>
+            <a href="tel:4123539676" class="btn" style="background: white; color: #27ae60; margin-top: 2rem;">Call (412) 353-9676 for Pricing</a>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <div class="container">
+            <h2>Ready to Maximize Your Investment Returns?</h2>
+            <p style="font-size: 1.1rem; color: #666; margin: 1rem 0 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Let us handle the day-to-day management while you focus on building wealth. Schedule a free consultation to discuss your property management needs.
+            </p>
+            <div>
+                <a href="tel:4123539676" class="btn">Call (412) 353-9676</a>
+                <a href="mailto:adam@pghpm.com" class="btn" style="background: #27ae60; margin-left: 1rem;">Email adam@pghpm.com</a>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3>Current Portfolio: 11 Properties | 100% Occupancy</h3>
+                <p>Our proven track record speaks for itself. Join our growing network of successful property investors.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pittsburgh Property Management. All rights reserved.</p>
+            <p>Phone: (412) 353-9676 | Email: adam@pghpm.com</p>
+            <p style="margin-top: 1rem;">Helping property owners build independent wealth through professional real estate management</p>
+        </div>
+    </footer>
+</body>
+</html>

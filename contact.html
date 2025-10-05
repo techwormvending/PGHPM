@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pittsburgh Property Management - Quality Living, Reasonable Cost</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        nav {
+            background: #1a252f;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(52, 152, 219, 0.8), rgba(41, 128, 185, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%2334495e" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #229954;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .properties {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .property-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .property-info {
+            padding: 1.5rem;
+        }
+
+        .property-info h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+        }
+
+        .amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .amenity {
+            background: #ecf0f1;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .sustainability {
+            background: #27ae60;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .sustainability h2 {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>Pittsburgh Property Management</h1>
+                    <p class="tagline">Quality Living at Reasonable Costs</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#properties">Available Properties</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero" id="home">
+        <div class="container">
+            <h2>Find Your Perfect Pittsburgh Home</h2>
+            <p>We provide high-quality living spaces at reasonable costs, with a commitment to sustainability and community</p>
+            <a href="#properties" class="btn">View Available Properties</a>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Pittsburgh Property Management</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto 3rem; text-align: center;">
+                <p style="font-size: 1.2rem; line-height: 1.8; color: #555; margin-bottom: 1.5rem;">
+                    Founded with a simple mission: to provide high-quality living spaces at reasonable costs while 
+                    maintaining our commitment to sustainability and environmental responsibility.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
+                    We believe that everyone deserves a safe, comfortable, and well-maintained home without breaking 
+                    the bank. Our properties are carefully selected and maintained to ensure they meet our high 
+                    standards while remaining affordable for Pittsburgh residents.
+                </p>
+            </div>
+
+            <h2 style="margin-top: 3rem;">Our Core Values</h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🏡</div>
+                    <h3>Quality Living</h3>
+                    <p>We maintain all our properties to the highest standards. Every unit includes modern appliances, 
+                    essential amenities, and is kept in excellent condition. We respond promptly to maintenance requests 
+                    and ensure our tenants have comfortable, safe homes.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💰</div>
+                    <h3>Reasonable Costs</h3>
+                    <p>Fair pricing is at the heart of what we do. We offer transparent lease agreements with no hidden 
+                    fees, competitive rental rates, and many units include utilities. We believe quality housing should 
+                    be accessible and affordable.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">♻️</div>
+                    <h3>Sustainable Practices</h3>
+                    <p>We're committed to environmental responsibility. Whenever possible, we reuse and recycle materials, 
+                    maintain energy-efficient properties, and encourage sustainable living practices. We believe in being 
+                    good stewards of both our properties and our planet.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Tenant-Focused</h3>
+                    <p>Our tenants are our priority. We maintain clear communication, respect tenant rights, provide 
+                    24-hour notice for routine visits, and handle security deposits fairly. We build long-term 
+                    relationships based on trust and mutual respect.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>Responsive Maintenance</h3>
+                    <p>We take property maintenance seriously. Regular upkeep keeps our properties in excellent condition, 
+                    and we respond quickly to tenant concerns. Emergency situations receive immediate attention, ensuring 
+                    tenant safety and comfort.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📋</div>
+                    <h3>Transparency</h3>
+                    <p>Clear, straightforward lease agreements with all terms explained. We use RentRedi for easy online 
+                    rent payment, provide written documentation for all transactions, and maintain open communication 
+                    about property management changes.</p>
+                </div>
+            </div>
+
+            <div style="max-width: 800px; margin: 3rem auto 0; background: #f8f9fa; padding: 2rem; border-radius: 10px; border-left: 4px solid #27ae60;">
+                <h3 style="color: #27ae60; margin-bottom: 1rem;">Our Commitment to Pittsburgh</h3>
+                <p style="line-height: 1.8; color: #555;">
+                    As a locally-focused property management company, we're invested in the Pittsburgh community. 
+                    We maintain our properties to enhance neighborhoods, treat our tenants with respect, and operate 
+                    with integrity. Our goal is not just to manage properties, but to provide homes where people can 
+                    build their lives and be part of thriving communities.
+                </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <h3 style="color: #2c3e50; margin-bottom: 1rem;">Interested in Renting?</h3>
+                <p style="font-size: 1.1rem; color: #666; margin-bottom: 1.5rem;">
+                    While all our current properties are rented, we'd love to hear from you. Contact us to join our 
+                    waiting list or inquire about upcoming availability.
+                </p>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="sustainability">
+        <div class="container">
+            <h2>Our Commitment to Sustainability</h2>
+            <p style="font-size: 1.1rem; max-width: 800px; margin: 1rem auto;">
+                We believe in providing quality housing while being responsible stewards of our environment. 
+                We actively reuse and recycle materials, maintain energy-efficient properties, and encourage 
+                sustainable living practices among our tenants.
+            </p>
+        </div>
+    </div>
+
+    <section id="properties">
+        <div class="container">
+            <h2>Our Properties</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
+                All of our quality properties are currently rented. Contact us to join our waiting list or inquire about future availability.
+            </p>
+            <div style="text-align: center;">
+                <a href="#contact" class="btn">Contact Us for Availability</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
+                Have questions or interested in future rental opportunities? We'd love to hear from you.
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📞</div>
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">Phone</h3>
+                    <a href="tel:4123539676" style="color: #3498db; text-decoration: none; font-size: 1.3rem; font-weight: bold;">
+                        (412) 353-9676
+                    </a>
+                    <p style="margin-top: 0.5rem; color: #666;">Call us anytime</p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">Email</h3>
+                    <a href="mailto:adam@pghpm.com" style="color: #3498db; text-decoration: none; font-size: 1.3rem; font-weight: bold;">
+                        adam@pghpm.com
+                    </a>
+                    <p style="margin-top: 0.5rem; color: #666;">We'll respond promptly</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="text-align: center; color: #2c3e50; margin-bottom: 1.5rem;">Send Us a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" required placeholder="Your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" required placeholder="your.email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" placeholder="(412) 555-1234">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" required placeholder="What can we help you with?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" required placeholder="Tell us more about your inquiry..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Send Message</button>
+                </form>
+            </div>
+
+            <div style="max-width: 600px; margin: 3rem auto 0; text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 10px;">
+                <h3 style="color: #2c3e50; margin-bottom: 1rem;">Join Our Waiting List</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    All our properties are currently rented, but we maintain a waiting list for future openings. 
+                    Contact us to be added to our list, and we'll notify you when properties become available.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pittsburgh Property Management. All rights reserved.</p>
+            <p>Phone: (412) 353-9676</p>
+            <p style="margin-top: 1rem;">Committed to quality living, reasonable costs, and sustainable practices</p>
+        </div>
+    </footer>
+</body>
+</html>
